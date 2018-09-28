@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<style>
+.form-input + .form-label {
+	position: absolute;
+    top: 161px;
+    left: 665px;
+    color: gray;
+    transition: transform 0.3s;
+}
+.form-input {
+    border: none;
+    border-bottom:2px solid #225;
+    outline: none;
+    width: 470px;
+    height: 50px;
+    font-size: 42px;
+}
+.form-label {
+    font-size:26px; 
+}
+body {
+    width: 600px;
+    margin: 0px auto;
+    font-family: monospace;
+}
+</style>
+<h2>Label animation when the input box is focused</h2>
+<div style="width:600px;height:100px"></div>
+<form>
+  <input class='form-input'type="text" name="firstname" autocomplete="off" onblur="setter()" onfocus="lifter()">
+  <label class='form-label'>First name:</label>
+</form> 
+
+
+<script>
+function lifter() {
+    $('.form-label').css({'color':'red','transform':'translateY(-26px) translateX(-23px) scale(0.7)'});
+} 
+ function setter() {
+    var inputValue = $('input').val();
+    if(inputValue == '') {
+    	$('.form-label').css({'color':'gray','transform':'translateY(0px) translateX(0px) scale(1)'});
+    }else{
+    	$('.form-label').css({'color':'red','transform':'translateY(-26px) translateX(-23px) scale(0.7)'});
+    }
+   };
+
+</script>
+</body>
+</html>
